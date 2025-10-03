@@ -1,0 +1,20 @@
+# docker-compose.yml
+
+services:
+  jekyll:
+    # 使用官方的 Jekyll 镜像，版本 4
+    image: jekyll/jekyll:4
+
+    # 容器启动后要执行的命令
+    # --host 0.0.0.0: 让外部可以访问
+    # --config ...: 加载我们的本地开发配置
+    # --livereload: 当你修改文件时，浏览器会自动刷新，非常方便
+    command: jekyll serve --host 0.0.0.0 --config _config.yml,_config_dev.yml --livereload
+
+    # 端口映射：将你电脑的 4000 端口连接到容器的 4000 端口
+    ports:
+      - "4000:4000"
+
+    # 卷挂载：将当前文件夹映射到容器的 /srv/jekyll 目录
+    volumes:
+      - .:/srv/jekyll

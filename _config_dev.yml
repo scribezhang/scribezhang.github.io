@@ -1,0 +1,5 @@
+# _config_dev.yml
+# 这个配置只在本地开发时使用，它会覆盖 _config.yml 中的 url 设置
+
+url: "http://localhost:4000"
+baseurl: ""
